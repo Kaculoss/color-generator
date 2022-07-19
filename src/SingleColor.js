@@ -4,7 +4,7 @@ import { rgbToHex } from "./Utilities";
 export const SingleColor = ({ rgb, weight, index, hexColor }) => {
   const [alert, setAlert] = useState(false);
   const bcg = rgb.join(",");
-  // const hex = rgbToHex(...rgb);
+  const hex = rgbToHex(...rgb);
   const hexValue = `#${hexColor}`;
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const SingleColor = ({ rgb, weight, index, hexColor }) => {
       }}
     >
       <p className="percent-value">{weight}%</p>
-      <p className="color-value">{hexValue}</p>
+      <p className="color-value">{hexValue || hex}</p>
       {alert && <p className="alert">copied to clipboard</p>}
     </article>
   );
